@@ -11,9 +11,10 @@ print(word)
 
 guess = input("Enter a single letter")
 
-# %% Checking input is single character
-if ((guess >= 'a' and guess <='z') or (guess >= 'A' and guess<='Z')):
-    print("Good guess!")
+# %% Checking input is single alphabetic character
+if (len(guess) <= 1) and (guess.isalpha()):
+        print("Good guess!")
 else:
     print("Oops! That is not a valid input.")
+
 # %%
