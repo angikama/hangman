@@ -12,3 +12,10 @@
   - If the guess meets the conditons, the message "Good guess" is printed
   - If the guess does not meet the conditons, the message "Invalid letter. Please, enter a single alphabetical character." is printed
 - Function 'check_guess' was called in the 'ask_for_input' function
+
+## Milestone 4
+- The Hangman class is defined with attributes and methods
+- The methods run the checks on the user's input, they check whether the guess is in the word, if the guess is a single, alphabetical charcter and if the guess has already been tried by the user
+- If the guess is equal to a letter in the word, the '_' that stands in place of the letter is replaced with the guess, and the number of letter left to guess is reduced by 1
+- If the guess is not equal to  letter in the word, the number of lives is reduced by 1
+
