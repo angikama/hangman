@@ -18,14 +18,16 @@ class Hangman:
         if guess in self.word:  
             print(f"Good guess! {guess} is in the word.")
             for x, letter in enumerate(self.word):
-                if guess == letter:
+                if letter == guess:
                     self.word_guessed[x] = letter
                     print(self.word_guessed)
+
             self.num_letters -= 1
+            
         else:
             self.num_lives -= 1
             print(f"Sorry, {guess} is not in the word.")
-            print(f"You have {self.num_lives} lives left.") 
+            print(f"You have {self.num_lives} lives left.")
         self.list_of_guesses.append(guess) 
 
 
@@ -39,18 +41,24 @@ class Hangman:
             else:
                 self.check_guess(guess)  
                 self.list_of_guesses.append(guess)
+            break
 
 def play_game():
     word_list = ["mango", "pineapple", "grapes", "cherry","banana"]
     game = Hangman(word_list, num_lives=5)
     while True:
-        if game.num_lives == 0:
+        if game.num_lives <= 0:
             print("You lost!")
+            break
         elif game.num_letters > 0:
             game.ask_for_input()
         else:
-            game.num_lives != 0 and game.num_letters == 0
+            game.num_lives > 0 and game.num_letters == 0
             print("Congratulations! You have won the game!")
+            break
+        
+    
+        
 
 play_game()
 
