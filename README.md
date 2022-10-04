@@ -19,3 +19,6 @@
 - If the guess is equal to a letter in the word, the '_' that stands in place of the letter is replaced with the guess, and the number of letter left to guess is reduced by 1
 - If the guess is not equal to  letter in the word, the number of lives is reduced by 1
 
+## Milestone 5
+- The logic of the game is coded using the play_game function, this allows the game to played
+- A while loops is used to set condtions to end the game
