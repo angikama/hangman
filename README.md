@@ -21,4 +21,5 @@
 
 ## Milestone 5
 - The logic of the game is coded using the play_game function, this allows the game to played
-- A while loops is used to set condtions to end the game
+- A while loop is used to set condtions to end the game
+- Thw hangman visual is added 
