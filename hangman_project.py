@@ -3,18 +3,36 @@ import random
 import string
 
 
-class Hangman:
+class Hangman():
+    '''
+    This class is used to represent the Hangman game
 
+    Attributes:
+        num_lives (int): the set number of lives the user has
+
+    Methods:
+        __init__ (self, num_lives=5)
+
+    '''
+    
     def __init__(self, word_list, num_lives=5):
+        '''
+        Class constructor to initialise attributes of the class
+
+        '''
         self.word_list = ["mango", "apple", "grape", "guava", "peach", "kiwi", "lemon"]
         self.num_lives = num_lives
         self.word = (random.choice(self.word_list))
         self.word_guessed = ['_'] * len(self.word)
         self.num_letters = len(self.word)
         self.list_of_guesses = []
-        pass
+ 
 # %%
     def hangman_display(self):
+        '''
+        This function displays the hangman visual
+
+        '''
         if self.num_lives == 4:
             print ("_________")
             print ("|    |")
@@ -58,6 +76,13 @@ class Hangman:
         return
 # %%
     def check_guess(self, guess):
+        '''
+        This function checks the if the user's guess is in the chosen random word
+
+        Parameters:
+            guess: single alphabetical character input from the user
+
+        '''
         guess = guess.lower()
         if guess in self.word:  
             print(f"Good guess! {guess} is in the word.")
@@ -65,11 +90,10 @@ class Hangman:
             for x, letter in enumerate(self.word):
                 if letter == guess:
                     self.word_guessed[x] = letter
-                    print(self.word_guessed)
+                    print(self.word_guessed)  
                 if self.word_guessed.count('_') <= 0:
                     print("Congratulations! You have won the game!")
                     break
-
             self.num_letters -= 1
             
         else:
@@ -81,6 +105,10 @@ class Hangman:
 
 
     def ask_for_input(self):
+        '''
+        This function asks the user for input and checks whether it is a unique single, alphabetical character
+
+        '''
         while True:
             guess = input("Welcome to Hangman, Guess a single letter")
             if (len(guess) > 1) or (guess.isdigit()):
@@ -93,8 +121,12 @@ class Hangman:
             break
 
 def play_game():
+    '''
+    This function runs all the code that allows the game to be played 
+
+    '''
     word_list = ["mango", "apple", "grape", "guava", "peach", "kiwi", "lemon"]
-    game = Hangman(word_list, num_lives=5)
+    game = Hangman (word_list, num_lives=5)
     while True:
         if game.num_lives <= 0:
             print("You lost!")
